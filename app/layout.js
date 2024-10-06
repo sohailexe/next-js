@@ -1,5 +1,7 @@
 import Navigation from "./components/Navigation";
 import Logo from "./components/Logo";
+import Counter from "./components/Counter";
+
 export const metadata = {
   title: "Sohail Faiz",
 };
@@ -11,6 +13,7 @@ export default function RootLayout({ children }) {
         <Logo />
         <Navigation />
         <main>{children}</main>
+
         <footer>Copy Right by Sohail Faiz</footer>
       </body>
     </html>
