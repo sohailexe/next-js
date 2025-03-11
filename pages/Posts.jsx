@@ -1,31 +1,30 @@
-"use client";
+import { Suspense } from "react";
 
-import { useEffect, useState } from "react";
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    async function fetchPosts() {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts?_limit=5"
-      );
-      const data = await response.json();
-      setPosts(data);
+export const dynamic = "force-dynamic";
+
+export default async function Posts() {
+  try {
+    const a = await fetch("https://procodrr.vercel.app/?sleep=2000");
+
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if (!res.ok) {
+      throw new Error("Failed to fetch posts");
     }
-
-    fetchPosts();
-  }, []);
-
-  return (
-    <div className="flex gap-3 border">
-      {posts.map((post, index) => {
-        return (
-          <div className="border h-96 w-96 bg-slate-300" key={post.id}>
-            {post.title}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-export default Posts;
+    const posts = await res.json();
+    return (
+      <Suspense fallback={<div>.....................</div>}>
+        <div>
+          <h1>Posts</h1>
+          {posts.map((post) => (
+            <div key={post.id}>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
+          ))}
+        </div>
+      </Suspense>
+    );
+  } catch (error) {
+    return <div>Error: {error.message}</div>;
+  }
+}

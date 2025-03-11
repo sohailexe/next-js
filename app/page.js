@@ -1,9 +1,12 @@
-import Posts from "@/pages/Posts";
+"use client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Example from "@/tanstack/Example";
+const queryClient = new QueryClient();
 
-export default function Page() {
+export default function App() {
   return (
-    <>
-      <Posts />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Example />
+    </QueryClientProvider>
   );
 }
