@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import logger from "../../utils/logger";
 
 export function useUser() {
   return useSWR("/user");
@@ -10,5 +11,7 @@ export function useCart() {
 }
 
 export function useProducts() {
-  return useSWR("/products");
+  return useSWR("/products", {
+    use: [logger],
+  });
 }
