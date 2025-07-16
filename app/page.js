@@ -1,13 +1,12 @@
 import React from "react";
-import Old from "./components/Old";
-import Psots from "./components/Psots";
-import Cart from "./components/Cart";
+
+import Products from "./components/Products";
 
 const page = () => {
   return (
     <div>
       <h1>Welcome to the New Page</h1>
-      <Cart />
+      <Products />
     </div>
   );
 };
