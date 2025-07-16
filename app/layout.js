@@ -10,7 +10,6 @@ export default function RootLayout({ children }) {
 
         <main>{children}</main>
 
-        <footer>Copy Right by Sohail Faiz</footer>
       </body>
     </html>
   );

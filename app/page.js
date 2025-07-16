@@ -1,12 +1,7 @@
-"use client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Example from "@/tanstack/Example";
-const queryClient = new QueryClient();
+import React from "react";
 
-export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Example />
-    </QueryClientProvider>
-  );
-}
+const page = () => {
+  return <div>page</div>;
+};
+
+export default page;
