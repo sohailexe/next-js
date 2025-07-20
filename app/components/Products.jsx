@@ -12,10 +12,7 @@ const Products = () => {
         title,
       },
       {
-        optimisticData: [
-          ...data,
-          { id: Date.now(), title: `${title} (optimistic)` },
-        ],
+        optimisticData: [...data, { id: Date.now(), title: `${title}` }],
         // rollbackOnError: true,
       }
     );
